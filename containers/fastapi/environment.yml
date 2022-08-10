@@ -1,0 +1,10 @@
+name: base                                                                   
+channels:                                                                    
+  - defaults              
+  - conda-forge                                                    
+dependencies:                                                                
+  - pandas
+  - scikit-learn
+  - fastapi
+  - uvicorn
+  - pydantic

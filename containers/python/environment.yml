@@ -1,0 +1,13 @@
+name: base                                                                   
+channels:                                                                    
+  - defaults              
+  - conda-forge                                                    
+dependencies:                                                                
+  - pandas
+  - sqlalchemy
+  - scikit-learn
+  - jupyterlab
+  - matplotlib
+  - seaborn
+  - psycopg2
+  - eli5
