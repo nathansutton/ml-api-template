@@ -57,8 +57,9 @@ curl --request POST http://127.0.0.1:8080/predict \
 
 ## Streamlit User Interface
 
-![](./resources/streamlit.png){ width=50% }
-A small web application can take features used to drive your model, then return a prediction from the REST API.  
+![](./resources/streamlit.png)  
+
+A small web application can take features used to drive your model, then return a prediction from the REST API.   
 
 ## Known Vulnerabilities
 There is literally zero security.  Keep this on localhost.
