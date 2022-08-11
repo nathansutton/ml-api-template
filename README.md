@@ -13,11 +13,6 @@ With this repository you can be sure that you work is reproduced by a hiring com
 
 This template includes an example dataset that I created based on iteratively querying the [New Jersey State Health Assessment Data](https://www-doh.state.nj.us/doh-shad/query/builder/birth/PretermAllCnty/Preterm.html), and these data are also available as an extract on [Kaggle](https://www.kaggle.com/datasets/natesutton/njpretermbirths).  Full caveats there is virtually no signal in this data to predict premature birth outcomes, it is merely meant to illustrate a problem.
 
-## Streamlit User Interface
-
-![](./resources/streamlit.png)
-A small web application can take features used to drive your model, then return a prediction from the REST API. 
-
 ## Services
 
 This repository exposes four components that are useful in a data science proof of concept.
@@ -59,6 +54,11 @@ curl --request POST http://127.0.0.1:8080/predict \
     -H 'Content-Type: application/json' \
     -d '{"age_group": "Under 15 yrs","reported_race_ethnicity": "White, non-Hispanic", "previous_births": "None","tobacco_use_during_pregnancy": "Yes","adequate_prenatal_care": "Inadequate"}'
 ```
+
+## Streamlit User Interface
+
+![](./resources/streamlit.png){ width=50% }
+A small web application can take features used to drive your model, then return a prediction from the REST API.  
 
 ## Known Vulnerabilities
 There is literally zero security.  Keep this on localhost.
