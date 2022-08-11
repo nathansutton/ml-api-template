@@ -63,7 +63,7 @@ A small web application can take features used to drive your model, then return 
 
 ## Known Vulnerabilities
 There is literally zero security.  Keep this on localhost.
-- There is not password for the postgres database.
+- There is no password for the postgres database.
 - The rest API calls are not encrypted.
 - The jupyter notebook runs as root in a container.
 - The user interface is exposed without encryption or a password.
