@@ -1,6 +1,6 @@
-# Take-home assignment template
+# ML take home template
 
-The purpose of this repository is to provide a quick-start for a data science take home problem.  They usually are framed like the following.
+The purpose of this repository is to provide a quick-start for a machine learning take home problem.  They usually are framed like the following.
 1. Here is some data and instructions  
 2. Build a model for us using a Jupyter notebook  
 3. Send us the notebook and/or some slides and we'll talk about it  
