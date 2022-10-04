@@ -6,15 +6,14 @@ services:
     image: postgres:11-alpine
     container_name: postgres
     environment:
-      - POSTGRES_HOST_AUTH_METHOD=trust
-      - POSTGRES_DB=postgres
-    env_file:
-      - .env
+      - POSTGRES_DB=$PGDATABASE
+      - POSTGRES_USER=$PGUSER
+      - POSTGRES_PASSWORD=$PGPASSWORD
     volumes:
       - ./volumes/postgres/data:/var/lib/postgresql/data
       - ./volumes/python:/opt
     ports:
-      - "5432:5432"
+      - "$PGPORT:5432"
 
   python:
     build: "./containers/python"

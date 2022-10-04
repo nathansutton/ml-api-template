@@ -1,5 +1,7 @@
 # ML take home template
 
+[![YourActionName Actions Status](https://github.com/nathansutton/ml-api-template/workflows/CI/badge.svg)](https://github.com/nathansutton/ml-api-template/actions)
+
 The purpose of this repository is to provide a quick-start for a machine learning take home problem.  They usually are framed like the following.
 1. Here is some data and instructions  
 2. Build a model for us using a Jupyter notebook  
@@ -16,17 +18,31 @@ This template includes an example dataset that I created based on iteratively qu
 ## Services
 
 This repository exposes four components that are useful in a data science proof of concept.
-- A container running Jupyter notebooks with common machine learning libraries (port:8888).  Any notebooks will persist in a mounted volume (./volumes/notebooks)
-- A container running Postgres in the event a relational database is useful (port:5432).  Any transformations will persist between containers in a mounted volume (./volumes/postgres)
-- A container running FastAPI to serve predictions from a scikit-learn model (port:8080)
-- A container running Streamlit allows a user to access the predictions from their scikit-learn model based on user inputs (port:8501)
+- A container running Jupyter notebooks with common machine learning libraries (available @ localhost:8888).  Any notebooks will persist in a mounted volume (./volumes/notebooks)
+- A container running Postgres in the event a relational database is useful (available @ localhost:5432).  Any transformations will persist between containers in a mounted volume (./volumes/postgres)
+- A container running FastAPI to serve predictions from a scikit-learn model (available @ localhost:8080)
+- A container running Streamlit allows a user to access the predictions from their scikit-learn model based on user inputs (available at localhost:8501)
 
 ## Usage
+
+turn on the application 
 ```
 docker-compose up 
 ```
 
+turn off the application
+```
+docker-compose down
+```
+
+rebuild the application
+```
+docker-compose down
+```
+
+
 ## Structure
+
 ```
 |-- containers - code
 |   |-- python      # interactive jupyter notebooks
@@ -38,9 +54,27 @@ docker-compose up
 |   |-- static      # static files that are loaded into postgres or jupyter
 ```
 
-## Database
+## Database connectivity
 
-You can connect to PostgreSQL on localhost:5432 with a user 'local' and no password (POSTGRES_HOST_AUTH_METHOD=trust) with any SQL client you like.
+There are several secrets pertaining to the postgres datbasse stored in the .env file at the root of the repository.
+
+```
+PGHOST=postgres
+PGUSER=local
+PGPASSWORD=password
+PGPORT=5432
+PGDATABASE=postgres
+```
+
+You can connect to PostgreSQL on localhost:5432 with a user 'local' and password 'password' with any SQL client.
+
+Inside the dockerized jupyter notebook, you can connect to PostgreSQL with the following URI
+
+```
+from sqlalchemy import create_engine 
+engine = create_engine('postgresql://local:password@postgres:5432/postgres)
+connection = engine.connect()
+```
 
 ## Package Manager
 
