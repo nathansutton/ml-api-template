@@ -16,7 +16,7 @@ with st.form(key='my_form'):
     age_input = st.selectbox('Mother\'s Age', age_choices)
     race_input = st.selectbox('Mother\'s Race/Ethnicity', race_ethnicity_choices)
     birth_input = st.selectbox('Previous Births', birth_choices)
-    tobacco_input = st.selectbox('Tobacco Use During Pregnancy?', age_choices)
+    tobacco_input = st.selectbox('Tobacco Use During Pregnancy?', tobacco_choices)
     care_input = st.selectbox('Access to Adequte Prenatal Care?', care_choices)
     submit_button = st.form_submit_button(label='Submit')
 
